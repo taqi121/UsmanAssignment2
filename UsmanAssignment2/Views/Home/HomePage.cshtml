@@ -1,0 +1,557 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+   <head>
+    <title>GoP</title>
+    <link href="~/new_design//css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="~/~/assets/home_frontend/vendor/owl-carousel/owl.carousel.css"
+          media="screen">
+    <link rel="stylesheet" href="~/assets/home_frontend/vendor/owl-carousel/owl.theme.css"
+          media="screen">
+    <link rel="stylesheet" href="~/assets/home_frontend/vendor/flexslider/flexslider.css"
+          media="screen">
+    <link rel="stylesheet" href="~/assets/home_frontend/js/select2/css/select2.min.css">
+    <link rel="stylesheet" href="~/assets/home_frontend/css/custom4.css">
+    <link rel="stylesheet" href="~/assets/frontend/zebra_datepicker/css/metallic.css">
+    <link rel="stylesheet" type="text/css" href="~/new_design//css/style.css">
+    <script src="~/assets/home_frontend/vendor/modernizr.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/new_design//datatables/v1.10.16/css/jquery.dataTables.min.css">
+    <style>
+        .form-horizontal .has-feedback .form-control-feedback {
+            right: 0;
+        }
+
+        .alert .close {
+            color: #000;
+            opacity: .5;
+        }
+
+        .success_alert {
+            background-color: #dff0d8;
+            color: #3c763d
+        }
+
+        .danger_alert {
+            background-color: #f2dede;
+            color: #a94442
+        }
+
+        .warning_alert {
+            background-color: #F4B400;
+            color: #fff;
+        }
+
+        .info_alert {
+            background-color: #d9edf7;
+            color: #31708f;
+        }
+
+        #loading_modal {
+            overflow: hidden;
+            z-index: 9999 !important;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .notification {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -300px;
+            z-index: 9998;
+            width: 400px;
+        }
+
+        .mj_popupdesign .modal-dialog {
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            z-index: 9997 !important;
+        }
+
+        .login_modal a, .modal-body .checkbox__custom {
+            display: none;
+        }
+
+        .modal {
+            z-index: 9993;
+        }
+
+        #register {
+            z-index: 9999 !important;
+        }
+
+        .Zebra_DatePicker.dp_visible {
+            z-index: 9996;
+        }
+
+        .has-feedback label ~ .form-control-feedback {
+            right: 20px;
+            z-index: 9997
+        }
+    </style>
+
+    <style>
+        .pagination_new {
+            display: inline-block;
+            padding-left: 0;
+            margin: 0px 0;
+            border-radius: 4px;
+        }
+
+            .pagination_new > li {
+                display: inline;
+            }
+
+                .pagination_new > li > a, .pagination_new > li > span {
+                    position: relative;
+                    float: left;
+                    padding: 6px 12px;
+                    margin-left: -1px;
+                    line-height: 1.42857143;
+                    color: #428bca;
+                    text-decoration: none;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                }
+
+                .pagination_new > li:first-child > a, .pagination_new > li:first-child > span {
+                    margin-left: 0;
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+
+        .userway_accessibility_icon {
+            background: #226705 !important
+        }
+
+        .pagination_new > .active > a, .pagination_new > .active > span, .pagination_new > .active > a:hover,
+        .pagination_new > .active > span:hover, .pagination_new > .active > a:focus, .pagination_new > .active > span:focus {
+            z-index: 2;
+            color: #fff;
+            cursor: default;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+    </style>
+</head>
+<body>
+
+    <input type="hidden" id="is_logged_in" value="0">
+    <div class="notification">
+    </div>
+    <header class="header">
+        <input type="hidden" id="baseUrl" value="https://www.jobs.punjab.gov.pk/">
+        <div class="header_top">
+            <div class="container top_manu">
+                <ul class="list-inline pull-right" style="color:white;">
+
+                    <li>
+                        Test Result
+                    </li>
+                    <li>
+                        Saved Jobs
+                    </li>
+                    <li>
+                        <a href="/Home/EmployeeView">
+                            Employees List
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="/Home/AddNew">
+                            Profile Builder
+                        </a>
+                    </li>
+
+                    <li>
+                        Profile
+                    </li>
+
+                    <li>
+                        Logout
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+        <div class="header_bottom">
+
+
+            <nav class="navbar navbar-default">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="navbar-brand" href="index.html">
+                            <img src="~/new_design//images/logo.png" class="img-responsive logo-image">
+                        </a>
+                    </div>
+                    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                        <ul data-breakpoint="992" class="nav navbar-nav pull-right">
+                            <li class="active">
+                                <a href="#">Home</a>
+                            </li>
+
+                            <li class="">
+                                <a href="#">Jobs</a>
+                            </li>
+
+                            <li class="">
+                                <a href="#">Departmental Contacts</a>
+                            </li>
+                            <li class="">
+                                <a href="#">FAQ's</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <style>
+        .selected {
+            //background: : lightblue;
+            background: rgba(11,148,68,.4);
+        }
+    </style>
+    <main class="main" role="main">
+
+        <div id="myCarousell" class="carousel slide" data-ride="carousel" data-interval="2500">
+
+            <div class="search_area">
+                <div class="banner_title">
+                    Search &amp; Apply Online on All Jobs
+                </div>
+                <div class="box">
+
+                    <div class="col-md-12 nopadding">
+                        <form action="" method="POST" role="form">
+                            <input type="hidden" name="status" value="homeSearch" />
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" name="jobIndustry" id="Profession" autocomplete="off" placeholder="Looking for...">
+                                        <span class="mini-loader" id="myCarousel" style="display:none;"><img src="loaderIcon.gif" class="loader_image"></span>
+                                        <div id="suggesstion-box" style="background-color:#fff;"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+
+                                        <select id="departments" name="jobDepartment" class="form-control select2-multiple ss">
+                                            <option value="Departments" selected>Departments</option>
+                                            <option value="210">Wildlife and Parks, Punjab</option>
+                                            <option value="45">Women Development Department</option>
+                                            <option value="476">Youth Affairs, Sports, Archaeology and Tourism Department</option>
+                                            <option value="47">Zakat & Ushr Department</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="form-group">
+                                        <select id="Location" name="jobRegion" class="form-control select2-multiple ss">
+                                            <option value="6">Location</option>
+                                            <option value="6">SARGODHA</option>
+                                            <option value="21">SHEIKHUPURA</option>
+                                            <option value="15">SIALKOT</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-1 text-left nopadding">
+                                    <button type="submit" class="btn btn-default"><i class="fa fa-search">Search</i></button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="clearfix"></div>
+                </div>
+
+
+            </div>
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    <img src="~/new_design//images/banner.jpg" alt="Punjab Job Portal">
+                </div>
+
+                <div class="item">
+                    <img src="~/new_design//images/banner2.jpg" alt="Punjab Job Portal">
+                </div>
+                <div class="item">
+                    <img src="~/new_design//images/banner2.jpg" alt="Punjab Job Portal">
+                </div>
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <section class="col-md-12 dept_boxes">
+            <div class="container">
+                <div class="dep-list">
+                    <div class="col-md-4 col-xs-6 bg bg-red">
+                        <a href="#">Available Jobs   <span>22</span></a>
+                    </div>
+                    <div class="col-md-4 col-xs-6 bg bg-yellow">
+                        Registered Departments   <span>455</span>
+                    </div>
+                    <div class="col-md-4 col-xs-6 bg bg-blue">
+                        Registered Candidates   <span>187022</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        <div class="clearfix"></div>
+
+        <section class="col-md-12 professional_contents">
+            <div class="section_title">
+            </div>
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-md-4 col-sm-4">
+                    <div class="col-md-12 mobile_no_padding">
+                        <div class="pro_box">
+                            <img src="~/new_design//images/pro_1.png" class="pro_images">
+                            <img src="~/new_design//images/pro_1_hover.png" class="pro_images_hov">
+
+                            <div class="pro_text">
+                                Professional Identification
+                            </div>
+                            <p>Create your online resume and make it available to Government Departments.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="col-md-12 mobile_no_padding">
+                        <div class="pro_box">
+                            <img src="~/new_design//images/pro_2.png" class="pro_images">
+                            <img src="~/new_design//images/pro_2_hover.png" class="pro_images_hov">
+
+                            <div class="pro_text">
+                                Discover Govt Punjab Jobs in Pakistan
+                            </div>
+                            <p>Single stop shop accross the board for Government Jobs.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="col-md-12 mobile_no_padding">
+                        <div class="pro_box">
+                            <img src="~/new_design//images/pro_3.png" class="pro_images">
+                            <img src="~/new_design//images/pro_3_hover.png" class="pro_images_hov">
+
+                            <div class="pro_text">
+                                Apply on the GO
+                            </div>
+                            <p>Apply with a click of button.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix"></div>
+        <section class="col-md-12 jobs">
+            <div class="container">
+                <div class="section_title">
+                    JOBS
+                </div>
+                <div class="jobs_area">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Department</th>
+                                    <th scope="col">Job Title</th>
+                                    <th scope="col">Project</th>
+                                    <th scope="col">Province</th>
+                                    <th scope="col">Last Apply Date</th>
+                                    <th scope="col"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td data-label="Department"><strong>Rawalpindi Medical University</strong></td>
+                                    <td data-label="Job Title">Professor of Biochemistry</td>
+                                    <td data-label="Project">Rawalpindi Medical University/Allied Hospitals</td>
+                                    <td data-label="Province">PUNJAB</td>
+                                    <!--<td data-label="Posted">Posted  days ago</td>-->
+                                    <td>31-Dec-2020</td>
+                                    <td><a href="#" class="btn btn-apply">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Department"><strong>Rawalpindi Medical University</strong></td>
+                                    <td data-label="Job Title">Professor of Nephrology</td>
+                                    <td data-label="Project">Rawalpindi Medical University/Allied Hospitals</td>
+                                    <td data-label="Province">PUNJAB</td>
+                                    <!--<td data-label="Posted">Posted  days ago</td>-->
+                                    <td>31-Dec-2020</td>
+                                    <td><a href="#" class="btn btn-apply">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Department"><strong>Rawalpindi Medical University</strong></td>
+                                    <td data-label="Job Title">Professor of Anesthesia</td>
+                                    <td data-label="Project">Rawalpindi Medical University/Allied Hospitals</td>
+                                    <td data-label="Province">PUNJAB</td>
+                                    <!--<td data-label="Posted">Posted  days ago</td>-->
+                                    <td>31-Dec-2020</td>
+                                    <td><a href="#" class="btn btn-apply">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Department"><strong>Rawalpindi Medical University</strong></td>
+                                    <td data-label="Job Title">Professor of Pathology</td>
+                                    <td data-label="Project">Rawalpindi Medical University/Allied Hospitals</td>
+                                    <td data-label="Province">PUNJAB</td>
+                                    <!--<td data-label="Posted">Posted  days ago</td>-->
+                                    <td>31-Dec-2020</td>
+                                    <td><a href="#" class="btn btn-apply">View Details</a></td>
+                                </tr>
+                                <tr>
+                                    <td data-label="Department"><strong>Rawalpindi Medical University</strong></td>
+                                    <td data-label="Job Title">Professor of Pharmacology</td>
+                                    <td data-label="Project">Rawalpindi Medical University/Allied Hospitals</td>
+                                    <td data-label="Province">PUNJAB</td>
+                                    <!--<td data-label="Posted">Posted  days ago</td>-->
+                                    <td>31-Dec-2020</td>
+                                    <td><a href="#" class="btn btn-apply">View Details</a></td>
+                                </tr>
+                            <td colspan="6" class="text-right">
+                                <a href="new_recruit/jobs.html" class="see_more">
+                                    <i class="fa fa-angle-double-right "></i> See All Jobs
+                                </a>
+                            </td>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="clearfix">
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer_logo">
+                        <a href="#"><img src="~/new_design//images/footer_logo.png" class="img-responsive footer_img"></a>
+
+                    </div>
+
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer_title">Sitemap</div>
+                    <ul class="sitemap_ul">
+                        <li>
+                            <a href="#">Home</a>
+                        </li>
+                        <li>
+                            <a href="#">Jobs</a>
+                        </li>
+                        <li>
+                            <a href="#">FAQ's</a>
+                        </li>
+                        <li>
+                            <a href="#">Departmental Contacts</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer_title">Career Center </div>
+                    <ul class="career_tips">
+                        <li>
+                            <a target="_blank" href="#">Interview Guides</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">Job Search Guides</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">Career Development</a>
+                        </li>
+                        <li>
+                            <a target="_blank" href="#">Career News</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="footer_title">Contact Us</div>
+                    <ul class="social_media">
+                        <li>
+                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                        </li>
+                    </ul>
+                    <ul class="contact_us_list">
+                        <li>
+                            <span class="contact_icon">
+                                <i class="fa fa-phone"></i>
+                                <span style="color:#fff;">+92 42 35880062 Ext:1222</span>
+                            </span>
+                        </li>
+                        <li>
+                            <span class="contact_icon">
+                                <i class="fa fa-envelope"></i>
+                                <a href="#"> jobsonlinesupport@punjab.gov.pk</a>
+                            </span>
+                        </li>
+                    </ul>
+
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <style>
+        .form-control-feedback {
+            right: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="~/new_design//js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/new_design//js/bootstrap.min.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery-migrate-1.2.1.min.js"></script>
+    <script src="~/assets/home_frontend/js/bootstrapValidator.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.flexnav.min.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.hoverIntent.minified.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.flickrfeed.js"></script>
+    <script src="~/assets/home_frontend/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+    <script src="~/assets/home_frontend/vendor/owl-carousel/owl.carousel.min.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.fitvids.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.appear.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.stellar.min.js"></script>
+    <script src="~/assets/home_frontend/vendor/flexslider/jquery.flexslider-min.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.countTo.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.validate.js"></script>
+    <script src="~/assets/home_frontend/js/newsletter.js"></script>
+    <script src="~/assets/frontend/zebra_datepicker/js/zebra_datepicker.js"></script>
+    <script src="~/assets/frontend/css/tinycarousel/tinycarousel.js" type="text/javascript"></script>
+    <script src="~/assets/home_frontend/js/custom.js"></script>
+    <script src="~/assets/home_frontend/js/select2.full.js"></script>
+
+    <script src="~/assets/home_frontend/js/jquery.maskedinput.js"></script>
+
+    <script src="~/assets/home_frontend/js/custom_js/profile_builderea33.js?2020-12-24%2009:34:25%20am" type="text/javascript"></script>
+    <script src="~/assets/home_frontend/js/custom_js/about_us.js" type="text/javascript"></script>
+    <script src="~/assets/home_frontend/js/custom_js/saved_jobs.js" type="text/javascript"></script>
+    <script src="~/assets/frontend/js/jquery.bootstrap.wizard.min.js" type="text/javascript"></script>
+    <script src="~/assets/frontend/js/form-wizard.js" type="text/javascript"></script>
+    <script src="~/assets/home_frontend/js/script.js"></script>
+    <script src="~/assets/frontend/js/jobs/jobs.js" type="text/javascript"></script>
+
+    <script src="~/assets/home_frontend/banner-rotator.slider/js/jssor.slider-22.1.6.mini.js" type="text/javascript"></script>
+    <script src="~/assets/new_~/assets/js/datetime/moment.js"></script>
+    <script src="~/assets/recruitment/tinymce/tinymce.min.js"></script>
+    <script src="~/new_design//datatables/v1.10.16/js/jquery.dataTables.min.js"></script>
+
+</body>
+</html>

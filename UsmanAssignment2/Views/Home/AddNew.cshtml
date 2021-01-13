@@ -1,0 +1,431 @@
+﻿@model UsmanAssignment2.Models.CrudOperation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+
+<html>
+<head>
+    <link href="~/assets/new_design/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <style>
+        .form-horizontal .has-feedback .form-control-feedback {
+            right: 0;
+        }
+
+        .alert .close {
+            color: #000;
+            opacity: .5;
+        }
+
+        .success_alert {
+            background-color: #dff0d8;
+            color: #3c763d
+        }
+
+        .danger_alert {
+            background-color: #f2dede;
+            color: #a94442
+        }
+
+        .warning_alert {
+            background-color: #F4B400;
+            color: #fff;
+        }
+
+        .info_alert {
+            background-color: #d9edf7;
+            color: #31708f;
+        }
+
+        #loading_modal {
+            overflow: hidden;
+            z-index: 9999 !important;
+            background: rgba(0,0,0,0.5);
+        }
+
+        .notification {
+            position: fixed;
+            top: 0;
+            left: 50%;
+            margin-left: -300px;
+            z-index: 9998;
+            width: 400px;
+        }
+
+        .mj_popupdesign .modal-dialog {
+            top: 50%;
+            position: absolute;
+            left: 50%;
+            margin-left: -100px;
+            width: 200px;
+            z-index: 9997 !important;
+        }
+
+        .login_modal a, .modal-body .checkbox__custom {
+            display: none;
+        }
+
+        .modal {
+            z-index: 9993;
+        }
+
+        #register {
+            z-index: 9999 !important;
+        }
+
+        .Zebra_DatePicker.dp_visible {
+            z-index: 9996;
+        }
+
+        .has-feedback label ~ .form-control-feedback {
+            right: 20px;
+            z-index: 9997
+        }
+    </style>
+
+    <style>
+        .pagination_new {
+            display: inline-block;
+            padding-left: 0;
+            margin: 0px 0;
+            border-radius: 4px;
+        }
+
+            .pagination_new > li {
+                display: inline;
+            }
+
+                .pagination_new > li > a, .pagination_new > li > span {
+                    position: relative;
+                    float: left;
+                    padding: 6px 12px;
+                    margin-left: -1px;
+                    line-height: 1.42857143;
+                    color: #428bca;
+                    text-decoration: none;
+                    background-color: #fff;
+                    border: 1px solid #ddd;
+                }
+
+                .pagination_new > li:first-child > a, .pagination_new > li:first-child > span {
+                    margin-left: 0;
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+
+        .userway_accessibility_icon {
+            background: #226705 !important
+        }
+
+        .pagination_new > .active > a, .pagination_new > .active > span, .pagination_new > .active > a:hover,
+        .pagination_new > .active > span:hover, .pagination_new > .active > a:focus, .pagination_new > .active > span:focus {
+            z-index: 2;
+            color: #fff;
+            cursor: default;
+            background-color: #428bca;
+            border-color: #428bca;
+        }
+
+    </style>
+</head>
+<body>
+
+
+
+    <div class="notification">
+    </div>
+    <style>
+        .form-control-feedback {
+            right: 10px;
+        }
+
+        .select2-container select2-container--default select2-container--open {
+            z-index: 9999;
+        }
+
+        .modal-dialog {
+            width: 80% !important;
+        }
+
+        .disabled-color {
+            background-color: #eee !important
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+            line-height: 20px !important;
+        }
+
+        .select2-container .select2-selection--single {
+            height: 35px !important;
+        }
+
+        i.fa.fa-percent {
+            position: absolute;
+            right: 25px;
+            top: 39px;
+        }
+
+        .alert-box {
+            color: #555;
+            border-radius: 10px;
+            font-family: Tahoma,Geneva,Arial,sans-serif;
+            font-size: 11px;
+            padding: 10px 36px;
+            margin: 10px;
+        }
+
+            .alert-box span {
+                font-weight: bold;
+                text-transform: uppercase;
+            }
+
+        .error {
+            background: #ffecec url('../../../images/error.png') no-repeat 10px 50%;
+            border: 1px solid #f5aca6;
+        }
+    </style>
+    <main>
+        <div id="page-content">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 page-content">
+                        <div class="panel panel-default">
+                            <div class="panel-heading"></div>
+                            <div class="panel-heading"></div>
+                            <div class="panel-body">
+                                <div id="wizard1" class="wizard-type1">
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="tab_personal_information">
+                                            <div class="col-md-12 col-sm-12 col-lg-12">
+                                                @using (Html.BeginForm())
+                                                {
+                                                    @Html.AntiForgeryToken()
+                                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                                    <div id="information_profile">
+                                                        <div id="information_profile_erros"></div>
+                                                        <div class="row">
+                                                            
+                                                            <div class="row">
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">First Name</label>
+
+                                                                    @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control", required="required" } })
+                                                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                                                   
+                                                                </div>
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Last Name</label>
+                                                                    @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                                                    
+                                                                </div>
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Date of Birth</label>
+                                                                    @Html.EditorFor(model => model.DOB, new { htmlAttributes = new { @class = "form-control", required = "required", type="date"} })
+                                                                    @Html.ValidationMessageFor(model => model.DOB, "", new { @class = "text-danger" })
+                                                                    
+                                                                </div>
+
+                                                            </div>
+                                                            <div class="row">
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Gender</label>
+                                                                    <select
+                                                                            class="form-control add_emp_select ss"
+                                                                            id="gender_id" name="gender_id">
+                                                                        <option value="">Select Gender</option>
+                                                                        <option value="Male">
+                                                                            Male
+                                                                        </option>
+                                                                        <option value="Female">
+                                                                            Female
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Marital Status</label>
+                                                                    @Html.EditorFor(model => model.MaritalStatus, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                                    @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                                                                </div>
+
+                                                                
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Father's Name</label>
+                                                                    @Html.EditorFor(model => model.FatherName, new { htmlAttributes = new { @class = "form-control", required = "required" } })
+                                                                    @Html.ValidationMessageFor(model => model.FatherName, "", new { @class = "text-danger" })
+                                                                    
+                                                                </div>
+                                                            </div>
+
+
+                                                            <div class="row">
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Mobile Number</label>
+                                                                    @Html.EditorFor(model => model.MobileNumber, new { htmlAttributes = new { @class = "form-control", required = "required" , placeholder = "+92-0311-1234567" } })
+                                                                    @Html.ValidationMessageFor(model => model.MobileNumber, "", new { @class = "text-danger" })
+                                                                    
+                                                                    <span style="font-size:10px;">For example +92-311-1234567</span>
+                                                                </div>
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Land Line</label>
+                                                                    @Html.EditorFor(model => model.Landline, new { htmlAttributes = new { @class = "form-control", required = "required" , placeholder = "+92-1111111111" } })
+                                                                    @Html.ValidationMessageFor(model => model.Landline, "", new { @class = "text-danger" })
+                                                                    
+                                                                    <span style="font-size:10px;">For example +92-1111111111</span>
+                                                                </div>
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Postal Address</label>
+                                                                    @Html.EditorFor(model => model.PostalAddress, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "House #4, A block, Johar Town, Lahore" } })
+                                                                    @Html.ValidationMessageFor(model => model.PostalAddress, "", new { @class = "text-danger" })
+                                                                    
+                                                                </div>
+
+                                                            </div>
+
+                                                            <div class="row">
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Domicile</label>
+                                                                    <select class="form-control add_emp_select ss" name="domicile_id"
+                                                                            id="domicile_id">
+                                                                        <option value="">Select Domicile</option>
+                                                                        <option value="0" selected>Not Applicable (N/A)</option>
+                                                                        <option value="Pakpattan">
+                                                                            Pakpattan
+                                                                        </option>
+                                                                        <option value="Sheikhupura">
+                                                                            Sheikhupura
+                                                                        </option>
+                                                                        <option value="Lahore">
+                                                                            Lahore
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Residential Country</label>
+                                                                    <select class="form-control add_emp_select ss"
+                                                                            name="country_id"
+                                                                            id="country_id">
+                                                                        <option value="">Select Country</option>
+                                                                        <option value="Pakistan">
+                                                                            Pakistan
+                                                                        </option>
+                                                                        <option value="China">
+                                                                            China
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Residential City</label>
+                                                                    @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "" } })
+                                                                    @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+
+                                                                    
+                                                                </div>
+
+
+
+                                                            </div>
+                                                            <div class="row">
+
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">CNIC</label>
+                                                                    @Html.EditorFor(model => model.CNIC, new { htmlAttributes = new { @class = "form-control", required = "required", placeholder = "" } })
+                                                                    @Html.ValidationMessageFor(model => model.CNIC, "", new { @class = "text-danger" })
+                                                                    
+                                                                </div>
+                                                                <div class="col-md-3 form-group has-feedback">
+                                                                    <label class="control-label">Nationality</label>
+                                                                    <select class="form-control add_emp_select ss" id="nationality"
+                                                                            name="nationality">
+                                                                        <option value="">Select Nationality</option>
+                                                                        <option value="Pakistan">
+                                                                            Pakistan
+                                                                        </option>
+                                                                        <option value="China">
+                                                                            China
+                                                                        </option>
+                                                                        <option value="India">
+                                                                            India
+                                                                        </option>
+                                                                    </select>
+                                                                </div>
+
+                                                               
+                                                            </div>
+                                                            <div class="col-md-3 form-group has-feedback">
+                                                                <label class="control-label">Ex-Service Official </label>
+                                                                <select class="form-control ss add_emp_select"
+                                                                        name="ex_ser_man"
+                                                                        id="ex_ser_man">
+                                                                    <option value="">Nothing Selected</option>
+                                                                    <option value="1">
+                                                                        Yes
+                                                                    </option>
+                                                                    <option value="0" selected>
+                                                                        No
+                                                                    </option>
+                                                                </select>
+                                                            </div>
+                                                            <div class="col-md-3 form-group has-feedback" style="margin-top:30px;">
+                                                                <label class="control-label">Are you a Government official ? </label>
+                                                                <input type="checkbox" name="is_gov_off" id="is_gov_off" value="0">
+                                                            </div>
+                                                            
+                                                        </div>
+                                                        <div class="row">
+                                                            <div class="col-md-3 form-group has-feedback" style="margin-top:30px;">
+                                                                <label class="control-label">Are you Disabled ? </label>
+                                                                <input type="checkbox" name="is_disabled" id="is_disabled" value="0">
+                                                            </div>
+                                                        </div>
+
+
+                                                    </div>
+                                                    <div class="bottom-line clearfix">
+                                                        <button class="btn_profile add_profile pull-right btn btn-primary "
+                                                                data-text="Add">
+                                                            <span>Save</span>
+                                                        </button>
+                                                        <a class="btn_profile add_profile pull-right btn btn-primary " href="/Home/HomePage">HomePage</a>
+                                                       
+                                                    </div>
+                                                }
+
+                                            </div>
+                                        <div class="clearfix"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <style>
+        .form-control-feedback {
+            right: 10px;
+        }
+    </style>
+    <script type="text/javascript" src="~/assets/new_design/js/jquery.min.js"></script>
+    <script src="~/assets/home_frontend/js/bootstrapValidator.js"></script>
+    <script src="~/assets/home_frontend/vendor/jquery.validate.js"></script>
+    <script src="~/assets/home_frontend/js/select2.full.js"></script>
+    <script src="~/assets/home_frontend/js/jquery.maskedinput.js"></script>
+    <script src="~/assets/home_frontend/js/custom_js/profile_builder332e.js"></script>
+    <script src="~/assets/recruitment/tinymce/tinymce.min.js"></script>
+</body>
+</html>

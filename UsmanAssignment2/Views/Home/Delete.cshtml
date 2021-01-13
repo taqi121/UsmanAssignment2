@@ -1,0 +1,152 @@
+﻿@model UsmanAssignment2.Models.CrudOperation
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+    <h3>Are you sure you want to delete this?</h3>
+    <div>
+        <h4>CrudOperation</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.DOB)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.DOB)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Gender)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Gender)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MaritalStatus)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MaritalStatus)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.FatherName)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.FatherName)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.MobileNumber)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.MobileNumber)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Landline)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Landline)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.PostalAddress)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.PostalAddress)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Domicile)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Domicile)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.country)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.country)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.Nationality)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.Nationality)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.CNIC)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.CNIC)
+            </dd>
+    
+            <dt>
+                @Html.DisplayNameFor(model => model.ExService)
+            </dt>
+    
+            <dd>
+                @Html.DisplayFor(model => model.ExService)
+            </dd>
+    
+        </dl>
+    
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+    
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "EmployeeView")
+            </div>
+        }
+    </div>
+</body>
+</html>

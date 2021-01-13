@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{736D3582-577F-454E-9EAA-5D33343CCE96}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>UsmanAssignment2</RootNamespace>
+    <AssemblyName>UsmanAssignment2</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44395</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CrudModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CrudModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CrudModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrudModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CrudOperation.cs">
+      <DependentUpon>CrudModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\backend\images\favicon.png" />
+    <Content Include="assets\frontend\css\tinycarousel\tinycarousel.js" />
+    <Content Include="assets\frontend\img\hiring.jpg" />
+    <Content Include="assets\frontend\js\form-wizard.js" />
+    <Content Include="assets\frontend\js\jobs\jobs.js" />
+    <Content Include="assets\frontend\js\jquery.bootstrap.wizard.min.js" />
+    <Content Include="assets\frontend\zebra_datepicker\css\metallic.css" />
+    <Content Include="assets\frontend\zebra_datepicker\images\calendar-disabled.png" />
+    <Content Include="assets\frontend\zebra_datepicker\images\calendar.png" />
+    <Content Include="assets\frontend\zebra_datepicker\images\metallic\default-date.png" />
+    <Content Include="assets\frontend\zebra_datepicker\images\metallic\disabled-date.png" />
+    <Content Include="assets\frontend\zebra_datepicker\images\metallic\selected-date.png" />
+    <Content Include="assets\frontend\zebra_datepicker\js\zebra_datepicker.js" />
+    <Content Include="assets\home_frontend\banner-rotator.slider\js\jssor.slider-22.1.6.mini.js" />
+    <Content Include="assets\home_frontend\css\animate.min.css" />
+    <Content Include="assets\home_frontend\css\bootstrapValidator.css" />
+    <Content Include="assets\home_frontend\css\custom.css" />
+    <Content Include="assets\home_frontend\css\custom4.css" />
+    <Content Include="assets\home_frontend\css\fonts\entypo\css\entypo.css" />
+    <Content Include="assets\home_frontend\css\fonts\entypo\fonts\entypoebafebaf.svg" />
+    <Content Include="assets\home_frontend\css\select2.min.css" />
+    <Content Include="assets\home_frontend\css\theme.css" />
+    <Content Include="assets\home_frontend\fonts\NotoSans-Regular-webfont.html" />
+    <Content Include="assets\home_frontend\images\bg-box1.png" />
+    <Content Include="assets\home_frontend\images\bg-box2.png" />
+    <Content Include="assets\home_frontend\images\bg-box3.png" />
+    <Content Include="assets\home_frontend\images\bg-box4.png" />
+    <Content Include="assets\home_frontend\images\bg1.html" />
+    <Content Include="assets\home_frontend\images\favicons\fav-icon.ico" />
+    <Content Include="assets\home_frontend\images\favicons\fav-icon.png" />
+    <Content Include="assets\home_frontend\images\samples\bg1.html" />
+    <Content Include="assets\home_frontend\images\samples\bg2.html" />
+    <Content Include="assets\home_frontend\js\bootstrapValidator.js" />
+    <Content Include="assets\home_frontend\js\custom.js" />
+    <Content Include="assets\home_frontend\js\custom_js\about_us.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder3270.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder332e.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder441a.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder5395.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder7f15.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder80c1.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builder83e2.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_buildera330.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builderc4a6.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builderd760.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builderd873.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builderea33.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_buildered94.js" />
+    <Content Include="assets\home_frontend\js\custom_js\profile_builderee52.js" />
+    <Content Include="assets\home_frontend\js\custom_js\saved_jobs.js" />
+    <Content Include="assets\home_frontend\js\jquery.maskedinput.js" />
+    <Content Include="assets\home_frontend\js\newsletter.js" />
+    <Content Include="assets\home_frontend\js\script.js" />
+    <Content Include="assets\home_frontend\js\select2.full.js" />
+    <Content Include="assets\home_frontend\js\select2\css\select2.min.css" />
+    <Content Include="assets\home_frontend\vendor\flexslider\flexslider.css" />
+    <Content Include="assets\home_frontend\vendor\flexslider\fonts\flexslider-icon.svg" />
+    <Content Include="assets\home_frontend\vendor\flexslider\jquery.flexslider-min.js" />
+    <Content Include="assets\home_frontend\vendor\font\job-managerb16d-2b16d.html" />
+    <Content Include="assets\home_frontend\vendor\font\job-managerb16d-3b16d.html" />
+    <Content Include="assets\home_frontend\vendor\font\job-managerb16d-4b16d.html" />
+    <Content Include="assets\home_frontend\vendor\font\job-managerb16db16d.html" />
+    <Content Include="assets\home_frontend\vendor\images\ajax-loader.html" />
+    <Content Include="assets\home_frontend\vendor\job-manager\frontend.css" />
+    <Content Include="assets\home_frontend\vendor\jquery-migrate-1.2.1.min.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.appear.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.countTo.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.fitvids.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.flexnav.min.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.flickrfeed.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.hoverIntent.minified.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.stellar.min.js" />
+    <Content Include="assets\home_frontend\vendor\jquery.validate.js" />
+    <Content Include="assets\home_frontend\vendor\magnific-popup\jquery.magnific-popup.js" />
+    <Content Include="assets\home_frontend\vendor\magnific-popup\magnific-popup.css" />
+    <Content Include="assets\home_frontend\vendor\modernizr.js" />
+    <Content Include="assets\home_frontend\vendor\owl-carousel\AjaxLoader.gif" />
+    <Content Include="assets\home_frontend\vendor\owl-carousel\grabbing.png" />
+    <Content Include="assets\home_frontend\vendor\owl-carousel\owl.carousel.css" />
+    <Content Include="assets\home_frontend\vendor\owl-carousel\owl.carousel.min.js" />
+    <Content Include="assets\home_frontend\vendor\owl-carousel\owl.theme.css" />
+    <Content Include="assets\images\error.png" />
+    <Content Include="assets\new_assets\css\animate.min.css" />
+    <Content Include="assets\new_assets\css\beyond.min.css" />
+    <Content Include="assets\new_assets\css\bootstrap.min.css" />
+    <Content Include="assets\new_assets\css\demo.min.css" />
+    <Content Include="assets\new_assets\css\font-awesome.min.css" />
+    <Content Include="assets\new_assets\css\fonts.css" />
+    <Content Include="assets\new_assets\css\fonts_robot.css" />
+    <Content Include="assets\new_assets\css\img\tree-icons.html" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="assets\new_assets\img\arfa.jpg" />
+    <Content Include="assets\new_assets\img\govlogo.png" />
+    <Content Include="assets\new_assets\img\jquery.minicolors.png" />
+    <Content Include="assets\new_assets\js\beyond.js" />
+    <Content Include="assets\new_assets\js\bootstrap.min.js" />
+    <Content Include="assets\new_assets\js\datetime\moment.js" />
+    <Content Include="assets\new_assets\js\jquery.min.js" />
+    <Content Include="assets\new_assets\js\skins.min.js" />
+    <Content Include="assets\new_assets\js\slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="assets\new_design\css\bootstrap.min.css" />
+    <Content Include="assets\new_design\css\font-awesome.min.css" />
+    <Content Include="assets\new_design\css\style.css" />
+    <Content Include="assets\new_design\js\bootstrap.min.js" />
+    <Content Include="assets\new_design\js\jquery.min.js" />
+    <Content Include="assets\recruitment\images\share-gov.png" />
+    <Content Include="assets\recruitment\tinymce\tinymce.min.js" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Models\CrudModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CrudModel.edmx</DependentUpon>
+      <LastGenOutput>CrudModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CrudModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CrudModel.edmx</DependentUpon>
+      <LastGenOutput>CrudModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="new_design\css\bootstrap.min.css" />
+    <Content Include="new_design\css\font-awesome.min.css" />
+    <Content Include="new_design\css\style.css" />
+    <Content Include="new_design\datatables\v1.10.16\css\jquery.dataTables.min.css" />
+    <Content Include="new_design\datatables\v1.10.16\images\sort_asc.png" />
+    <Content Include="new_design\datatables\v1.10.16\images\sort_asc_disabled.png" />
+    <Content Include="new_design\datatables\v1.10.16\images\sort_both.png" />
+    <Content Include="new_design\datatables\v1.10.16\images\sort_desc.png" />
+    <Content Include="new_design\datatables\v1.10.16\images\sort_desc_disabled.png" />
+    <Content Include="new_design\datatables\v1.10.16\js\jquery.dataTables.min.js" />
+    <Content Include="new_design\fonts\fontawesome-webfontba72ba72ba72.svg" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="new_design\images\banner.jpg" />
+    <Content Include="new_design\images\banner2.jpg" />
+    <Content Include="new_design\images\footer_logo.png" />
+    <Content Include="new_design\images\logo.png" />
+    <Content Include="new_design\images\pro_1.png" />
+    <Content Include="new_design\images\pro_1_hover.png" />
+    <Content Include="new_design\images\pro_2.png" />
+    <Content Include="new_design\images\pro_2_hover.png" />
+    <Content Include="new_design\images\pro_3.png" />
+    <Content Include="new_design\images\pro_3_hover.png" />
+    <Content Include="new_design\images\pro_bg.jpg" />
+    <Content Include="new_design\images\pro_bg_hover.jpg" />
+    <Content Include="new_design\js\bootstrap.min.js" />
+    <Content Include="new_design\js\jquery.min.js" />
+    <Content Include="new_design\new_design\images\error.html" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="assets\home_frontend\css\fonts\entypo\fonts\entypoebafebaf.eot" />
+    <Content Include="assets\home_frontend\css\fonts\entypo\fonts\entypoebafebaf.ttf" />
+    <Content Include="assets\home_frontend\css\fonts\entypo\fonts\entypoebafebaf.woff" />
+    <Content Include="assets\home_frontend\vendor\flexslider\fonts\flexslider-icon.eot" />
+    <Content Include="assets\home_frontend\vendor\flexslider\fonts\flexslider-icon.ttf" />
+    <Content Include="assets\home_frontend\vendor\flexslider\fonts\flexslider-icon.woff" />
+    <Content Include="assets\home_frontend\vendor\flexslider\fonts\flexslider-icond41dd41d.eot" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="assets\new_assets\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="assets\new_assets\fonts\font\59ZRklaO5bWGqF5A9baEERJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\cJZKeOuBrn4kERxqtaUH3VtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTa-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTaaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTf8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTRWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTT0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="assets\new_assets\fonts\font\DXI1ORHCpsQm3Vp6mXoaTZX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzBWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzD0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzJX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzK-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzKaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzOgdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="assets\new_assets\fonts\font\k3k702ZOKiLJc3WVjuplzP8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="assets\new_assets\fonts\font\K88pR3goAWT7BTt32Z01mxJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\LWCjsQkB6EMdfHrEVqA1KRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNShWV49_lSm1NYrwo-zkhivY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSj0LW-43aMEzIO6XUTLjad8.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSpX5f-9o1vgP2EXwfjgl7AY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSq-j2U0lmluP9RWlSytm3ho.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSqaRobkAwv3vxw3jMhVENGA.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSugdm0LZdjqr5-oayXSOefg.woff2" />
+    <Content Include="assets\new_assets\fonts\font\MTP_ySUJH_bn48VBG8sNSv8zf_FOSsgRmwsS7Aa9k2w.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxgalQocB-__pDVGhF3uS2Ks.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxgyhumQnPMBCoGYhRaNxyyY.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxhgVThLs8Y7ETJzDCYFCSLE.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxhUVAXEdVvYDDqrz3aeR0Yc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxiFaMxiho_5XQnyRZzQsrZs.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxi_vZmeiCMnoWNN9rHBYaTc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxko2lTMeWA_kmIyWrkNCwPc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxl2umOyRU7PgRiv8DXcgJjk.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxlf4y_3s5bcYyyLIFUSWYUU.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxmgpAmOCqD37_tyH_8Ri5MM.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxmhQUTDJGru-0vvUpABgH8I.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxnywqdtBbUHn3VPgzuFrCy8.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxolIZu-HDpmDIZMigmsroc4.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxp6iIh_FvlUHQwED9Yt5Kbw.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxpiMaisvaUVUsYyVzOmndek.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxqfJul7RR1X4poJgi27uS4w.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxqvyPXdneeGd26m9EmFSSWg.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxrBAWGjcah5Ky0jbCgIwDB8.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxsPNMTLbnS9uQzHQlYieHUU.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxujkDdvhIIFj_YMdgqpnSB0.woff2" />
+    <Content Include="assets\new_assets\fonts\font\PRmiXeptR36kaC0GEAetxv14vlcfyPYlAcQy2UfDRm4.woff2" />
+    <Content Include="assets\new_assets\fonts\font\RjgO7rYTmqiVp7vzi-Q5URJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\u-WUoqrET9fUeobQW7jkRRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBiYE0-AqJ3nfInTTiDXDjU4.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBjTOQ_MqJVwkKsUn0wKzc2I.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBjUj_cnvWIuuBMVgbX098Mw.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBkbcKLIaa1LC45dFaAfauRA.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBmo_sUJ8uO4YLWRInS22T3Y.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBo4P5ICox8Kq3LLUNMylGO4.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xjAJXh38I15wypJXxuGMBr6up8jxqWt8HVA3mDhkV_0.woff2" />
+    <Content Include="assets\new_assets\fonts\font\xozscpT2726on7jbcb_pAhJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="assets\new_assets\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="assets\new_assets\fonts\robo\-2n2p-_Y08sg57CNWQfKNvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\CWB0XYA8bzo0kSThX0UTuA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\ek4gzZ-GeXAPcSbHtCeQI_esZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\Fcx7Wwv8OzT71A3E1XOAjvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\Hgo13k-tfSpn0qi1SFdUfVtXRa8TVwTICgirnJhmVJw.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\mErvLBYg_cXG3rLvUsKT_fesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\NdF9MtnOpLzo-noMoG0miPesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\NYDWBdD4gIq26G5XYbHsFBJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\Pru33qjShpZSmG3z6VYwnRJtnKITppOI_IvcXXDNrsc.woff2" />
+    <Content Include="assets\new_assets\fonts\robo\u0TOpm082MNkS5K0Q4rhqvesZW2xOQ-xsNqO47m55DA.woff2" />
+    <Content Include="new_design\fonts\fontawesome-webfontba72ba72ba72.eot" />
+    <Content Include="new_design\fonts\fontawesome-webfontba72ba72ba72.ttf" />
+    <Content Include="new_design\fonts\fontawesome-webfontba72ba72ba72.woff" />
+    <Content Include="new_design\fonts\fontawesome-webfontd41dd41dd41d.eot" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="new_design\fonts\glyphicons-halflings-regulard41d.eot" />
+    <Content Include="new_design\fonts\Open_Sans\OpenSans-Bold.ttf" />
+    <Content Include="new_design\fonts\Open_Sans\OpenSans-Regular.ttf" />
+    <Content Include="new_design\fonts\Open_Sans\OpenSans-SemiBold.ttf" />
+    <EntityDeploy Include="Models\CrudModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CrudModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CrudModel.edmx.diagram">
+      <DependentUpon>CrudModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.4.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.4.1.js" />
+    <Content Include="Scripts\jquery-3.4.1.min.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.js" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\HomePage.cshtml" />
+    <Content Include="Views\Home\AddNew.cshtml" />
+    <Content Include="Views\Home\EmployeeView.cshtml" />
+    <Content Include="Views\Home\DetailsOfEmploye.cshtml" />
+    <Content Include="Views\Home\Edit.cshtml" />
+    <Content Include="Views\Home\Delete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64318</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44395/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>
